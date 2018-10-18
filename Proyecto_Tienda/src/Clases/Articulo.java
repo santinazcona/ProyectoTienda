@@ -45,4 +45,5 @@ public class Articulo {
 				+ ", precio=" + precio + ", cantidad=" + cantidad + "]";
 	}
 	
+	
 }
