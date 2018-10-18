@@ -39,6 +39,7 @@ public class Articulo {
 		this.cantidad = cantidad;
 	}
 	
+	
 	@Override
 	public String toString() {
 		return "Articulo [cod=" + cod + ", nombre=" + nombre + ", tipo=" + tipo
