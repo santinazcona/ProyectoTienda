@@ -1,17 +1,17 @@
 package Clases;
 
 public class Cliente {
-	private String Nombre;
+	private String Nick;
 	private String DNI;
 	private String TarjetaCredito;
 	private String Direccion;
 	private String Email;
 	private String Contrasenia;
-	public String getNombre() {
-		return Nombre;
+	public String getNick() {
+		return Nick;
 	}
-	public void setNombre(String nombre) {
-		Nombre = nombre;
+	public void setNick(String nick) {
+		Nick = nick;
 	}
 	public String getDNI() {
 		return DNI;
@@ -46,7 +46,7 @@ public class Cliente {
 	
 	@Override
 	public String toString() {
-		return "Cliente [Nombre=" + Nombre + ", DNI=" + DNI
+		return "Cliente [Nick=" + Nick + ", DNI=" + DNI
 				+ ", TarjetaCredito=" + TarjetaCredito + ", Direccion="
 				+ Direccion + ", Email=" + Email + ", Contrasenia="
 				+ Contrasenia + "]";
