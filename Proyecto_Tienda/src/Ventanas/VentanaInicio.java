@@ -72,7 +72,7 @@ public class VentanaInicio extends JFrame {
 		botonCompras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				VentanaCompra abrirVentana2 = new VentanaCompra();
-	//			abrirVentana2.setVisible(true);
+				abrirVentana2.setVisible(true);
 				VentanaInicio.this.dispose();
 			}
 		});
