@@ -29,10 +29,8 @@ public class VentanaInicio extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -86,7 +84,7 @@ public class VentanaInicio extends JFrame {
 		JButton botonCliente = new JButton("Cliente");
 		botonCliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				VentanaUsuario abrirVentana3 = new VentanaUsuario();
+//			VentanaUsuario abrirVentana3 = new VentanaUsuario();
 //				abrirVentana3.setVisible(true);
 				VentanaInicio.this.dispose();
 			}

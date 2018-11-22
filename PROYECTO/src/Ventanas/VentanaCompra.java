@@ -1,10 +1,6 @@
 package Ventanas;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
-import java.awt.Image;
-
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -16,21 +12,11 @@ import java.awt.event.ActionEvent;
 
 public class VentanaCompra extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VentanaCompra frame = new VentanaCompra();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
 
 	public VentanaCompra() {
 		setTitle("Haz tu compra");
@@ -68,7 +54,7 @@ public class VentanaCompra extends JFrame {
 		JButton botonHacerCompra = new JButton("Comprar");
 		botonHacerCompra.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				VentanaHacerCompra abrirVentana3 = new VentanaHacerCompra();
+				VentanaHacerCompra abrirVentana3 = new VentanaHacerCompra(null);
 				abrirVentana3.setVisible(true);
 				VentanaCompra.this.dispose();
 				
