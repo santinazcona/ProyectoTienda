@@ -7,6 +7,7 @@ public class Articulo {
 	private String tipo;
 	private float precio;
 	private int cantidad;
+	
 	public int getCod() {
 		return cod;
 	}

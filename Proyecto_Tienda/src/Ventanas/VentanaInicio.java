@@ -56,7 +56,8 @@ public class VentanaInicio extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel label = new JLabel("");
-//		Image img = new ImageIcon(this.getClass().getResource("/TiendaInformatica.jpg")).getImage();
+//		Image img = new ImageIcon(JLabel.class.getResource("../../imagenes/TiendaInformatica.jpg")).getImage();
+		ImageIcon img = new ImageIcon("C:\\Users\\Jone\\git\\ProyectoTienda\\Proyecto_Tienda\\imagenes\\TiendaInformatica.jpg");
 		
 		JButton botonProductos = new JButton("Productos");
 		botonProductos.addActionListener(new ActionListener() {
@@ -86,7 +87,7 @@ public class VentanaInicio extends JFrame {
 		JButton botonCliente = new JButton("Cliente");
 		botonCliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				VentanaCliente abrirVentana3 = new VentanaCliente();
+				VentanaUsuario abrirVentana3 = new VentanaUsuario();
 //				abrirVentana3.setVisible(true);
 				VentanaInicio.this.dispose();
 			}
@@ -102,6 +103,7 @@ public class VentanaInicio extends JFrame {
 		lblNewLabel.setBounds(97, 44, 232, 63);
 		contentPane.add(lblNewLabel);
 //		label.setIcon(new ImageIcon(img));
+		label.setIcon(img);
 		label.setBounds(0, 0, 732, 346);
 		contentPane.add(label);
 	}
