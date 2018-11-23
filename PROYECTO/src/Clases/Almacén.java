@@ -14,6 +14,7 @@ public class Almacén implements Serializable{
 	private String articuloAlmacenado;
 	private int posicionEnElALmacen;
 	private int cantidadArticuloExistente;
+	
 
 
 	//Constructores de la clase
