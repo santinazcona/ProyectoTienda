@@ -41,7 +41,7 @@ import Clases.Compra;
 //	}
 	
 			public void insertarArticulo(int cod, String nombre, String tipo, String precio, int cantidad){
-				String com = "insert into articulo ( cod, nombre, tipo, precio, cantidad ) values ('"+cod+"', '"+nombre+"', '"+tipo+"', '"+precio+"', '"+cantidad+"')";
+				String com = "insert into articulos ( cod, nombre, tipo, precio, cantidad ) values ('"+cod+"', '"+nombre+"', '"+tipo+"', '"+precio+"', '"+cantidad+"')";
 				try {
 						st.executeUpdate(com);
 						
@@ -55,7 +55,7 @@ import Clases.Compra;
 		
 			for(int i=0;i<usuario.size();i++){
 				Usuario u = usuario.get(i);
-				String com = "INSERT INTO usuarios( nombre, apellidos, direccion, poblacion, CP, CodigoUsuario,passwordUsuario,CuentaBancaria ) values ('"+u.getNombre()+"', '"+u.getApellidos()+"', '"+u.getDireccion()+"', '"+u.getPoblacion()+"', '"+u.getCodigoPostal()+"', '"+u.getCodigoUsuario()+"','"+u.getPasswordUsuario()+"','"+u.getCuentaBancaria()+"')";
+				String com = "INSERT INTO usuarios( Nombre, Apellidos, Direccion, Poblacion, CP, CodigoUsuario,PasswordUsuario,CuentaBancaria ) values ('"+u.getNombre()+"', '"+u.getApellidos()+"', '"+u.getDireccion()+"', '"+u.getPoblacion()+"', '"+u.getCodigoPostal()+"', '"+u.getCodigoUsuario()+"','"+u.getPasswordUsuario()+"','"+u.getCuentaBancaria()+"')";
 				try {
 					st.executeUpdate(com);
 				} catch (SQLException e) {
