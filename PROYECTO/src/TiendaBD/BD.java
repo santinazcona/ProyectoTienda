@@ -104,9 +104,3 @@ import Clases.Compra;
 //			}
 //			}
 	}
-
-				
-			
-
-	
-	
