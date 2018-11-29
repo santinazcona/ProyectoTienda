@@ -8,7 +8,8 @@ public class VentanaImagen extends javax.swing.JPanel {
 	public VentanaImagen(){
 		this.setSize(750, 387);
 	}
-	@Override
+	
+	
 	public void paintComponent (Graphics g){
 		Dimension tamanio = getSize();
 		ImageIcon imagenFondo = new ImageIcon(getClass().getResource("/imagenes/TiendaInformatica.jpg"));
