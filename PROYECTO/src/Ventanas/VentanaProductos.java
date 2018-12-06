@@ -34,6 +34,7 @@ public class VentanaProductos {
 //			JLabel lblFoto = new JLabel(im);
 //			panelFotos.add(lblFoto);
 		}
+	
 }
 
 
