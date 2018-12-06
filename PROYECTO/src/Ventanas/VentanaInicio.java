@@ -1,13 +1,13 @@
 package Ventanas;
 
 import java.awt.BorderLayout;
+import java.awt.Container;
 import java.awt.EventQueue;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
 import javax.swing.JTextPane;
 import javax.swing.UIDefaults;
 import javax.swing.UIManager;
@@ -16,9 +16,12 @@ import java.awt.Font;
 import java.awt.Image;
 
 import javax.swing.JLabel;
+
 import java.awt.Color;
 import java.awt.SystemColor;
+
 import javax.swing.JButton;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -29,6 +32,7 @@ public class VentanaInicio extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	private VentanaImagen panelFondo;
 	
 
 	public static void main(String[] args) {
@@ -45,11 +49,15 @@ public class VentanaInicio extends JFrame {
 	}
 
 	public VentanaInicio() {
+		panelFondo = new VentanaImagen();
 		setTitle("PC_Makers");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 750, 387);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		Container contenedor = getContentPane();
+		contenedor.add(panelFondo);
+		panelFondo.setLayout(null);
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
