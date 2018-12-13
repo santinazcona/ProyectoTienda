@@ -84,8 +84,8 @@ public class VentanaInicio extends JFrame {
 		JButton botonCliente = new JButton("Cliente");
 		botonCliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-//			VentanaUsuario abrirVentana3 = new VentanaUsuario();
-//				abrirVentana3.setVisible(true);
+			VentanaUsuario abrirVentana3 = new VentanaUsuario(null, null);
+				abrirVentana3.setVisible(true);
 				VentanaInicio.this.dispose();
 			}
 		});
