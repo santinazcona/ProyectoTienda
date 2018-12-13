@@ -15,16 +15,23 @@ public class Usuario   {
 	
 	
 	//Constructores de la clase
+	public Usuario() {}
 	
-	public Usuario() {
-		super();
-		
+	public Usuario(String nombre, String apellidos, String direccion,
+			String poblacion, int codigoPostal, String codigoUsuario,
+			int cuentaBancaria) {
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.direccion = direccion;
+		this.poblacion = poblacion;
+		this.codigoPostal = codigoPostal;
+		this.codigoUsuario = codigoUsuario;
+		this.cuentaBancaria = cuentaBancaria;
 	}
 	
 	public Usuario(String nombre, String apellidos, String direccion,
 			String poblacion, int codigoPostal, String passwordUsuario, String codigoUsuario,
 			int cuentaBancaria) {
-		super();
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.direccion = direccion;
