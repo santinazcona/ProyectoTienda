@@ -42,7 +42,7 @@ public class VentanaCompra extends JFrame {
 		JButton butonCarrito = new JButton("Ver Carrito");
 		butonCarrito.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				VentanaVerCarrito abrirVentana2 = new VentanaVerCarrito();
+				VentanaVerCarrito abrirVentana2 = new VentanaVerCarrito(null);
 				abrirVentana2.setVisible(true);
 				VentanaCompra.this.dispose();
 			}
