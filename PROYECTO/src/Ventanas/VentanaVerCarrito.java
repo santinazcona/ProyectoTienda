@@ -57,11 +57,10 @@ public class VentanaVerCarrito extends JDialog implements ActionListener {
 		jtable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		jtable.setPreferredScrollableViewportSize(new Dimension(500, 70));
 		jtable.setFillsViewportHeight(true);
-        //Create the scroll pane and add the table to it.
         JScrollPane scrollPane = new JScrollPane(jtable);
-        //Add the scroll pane to this panel.
         pLista.add(scrollPane);
 		
+		rellenarTabla();
 		JPanel pBotonera = new JPanel();
 		bContinuar.addActionListener(this);
 		bEliminar.addActionListener(this);
@@ -86,12 +85,39 @@ public class VentanaVerCarrito extends JDialog implements ActionListener {
 		getContentPane().add(pLista, BorderLayout.CENTER);
 		getContentPane().add(pBotonera, BorderLayout.SOUTH);
 	}
+	
+	private void rellenarTabla() {
+		//encontramos carrito de usuario
+		ArrayList<Carrito> lista = BD.extraerCarrito(usuario);
+		data = new Object[lista.size()][columnNames.length];
+		for(int i = 0; i < lista.size(); i++) {
+				data[i][0] = lista.get(i).getId();
+				data[i][1] = lista.get(i).getCod();
+				data[i][2] = lista.get(i).getTipo();
+				data[i][3] = lista.get(i).getPrecio();
+				
+				modeloTabla.addRow(data[i]);
+		}
+	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
+		if(e.getSource() == bContinuar) {
+			dispose();
+		}
+		if(e.getSource() == bComprar) {
+			for (int i = 0; i < modeloTabla.getRowCount(); i++) {
+				BD.comprarArticulo(usuario.getCodigoUsuario(),
+						Integer.parseInt(modeloTabla.getValueAt(i, 1).toString()),
+						Float.parseFloat(modeloTabla.getValueAt(i, 3).toString())
+						);
+				BD.borrarAritucloCarrito(Integer.parseInt(modeloTabla.getValueAt(i, 0).toString()));
+			}
+			JOptionPane.showMessageDialog(null,
+					"Su compra ha sido procesada con exito!",
+					"Compra",
+					JOptionPane.PLAIN_MESSAGE);
+			dispose();
+		}
 	}
-	
-
 }
