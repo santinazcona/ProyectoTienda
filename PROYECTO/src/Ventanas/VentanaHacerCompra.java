@@ -8,6 +8,7 @@ import java.awt.event.MouseListener;
 
 
 
+
 import javax.swing.*;
 
 import Clases.Usuario;
@@ -18,27 +19,7 @@ import Clases.Usuario;
 
 
 public class VentanaHacerCompra extends JFrame implements ActionListener  , MouseListener {
-	
-	
-	private static final long serialVersionUID = 8799656478674716640L;
-     
-//	
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					VentanaCompra frame = new VentanaCompra();
-//					frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
-	
-	
-	
-	
+private static final long serialVersionUID = 8799656478674716640L;
 	
 	private JLabel nombre;
 	private JLabel apellidos;
@@ -48,7 +29,6 @@ public class VentanaHacerCompra extends JFrame implements ActionListener  , Mous
 	private JLabel tallatamaño;
 	
 	private JComboBox <String >tipoArticulo;
-	
 	
 	private JTextField artSeleccionados;
 	private JTextField precioPedido;
@@ -155,15 +135,6 @@ public class VentanaHacerCompra extends JFrame implements ActionListener  , Mous
 		 scrlPnlLista = new JScrollPane();
 			
 			
-		// lstOrdenadores = new JList<Ordenadores>();
-		 // lstOrdenadores.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		 // lstOrdenadores.setModel(new DefaultListModel<Ordenadores>());
-		
-		 // lstOrdenadores.addMouseListener(this);
-		
-		 
-		 // scrlPnlLista.setViewportView(lstOrdenadores);
-	
 	
 			 
 		// Creación de paneles
