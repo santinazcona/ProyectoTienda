@@ -12,33 +12,8 @@ import javax.swing.*;
 
 import Clases.Usuario;
 
-
-
-
-
-
 public class VentanaHacerCompra extends JFrame implements ActionListener  , MouseListener {
-	
-	
 	private static final long serialVersionUID = 8799656478674716640L;
-     
-//	
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					VentanaCompra frame = new VentanaCompra();
-//					frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
-	
-	
-	
-	
 	
 	private JLabel nombre;
 	private JLabel apellidos;
@@ -48,7 +23,6 @@ public class VentanaHacerCompra extends JFrame implements ActionListener  , Mous
 	private JLabel tallatamaño;
 	
 	private JComboBox <String >tipoArticulo;
-	
 	
 	private JTextField artSeleccionados;
 	private JTextField precioPedido;
@@ -84,10 +58,7 @@ public class VentanaHacerCompra extends JFrame implements ActionListener  , Mous
 		codigoPostal = new JLabel( Integer.toString(uDatos.getCodigoPostal()));
 		tallatamaño = new JLabel("Talleje" );
 		tipoArticulo = new JComboBox<String>( new String[] { "Ordenadores"} );
-	
-	
-		
-		
+
 		artSeleccionados = new JTextField(6);
 		precioPedido = new JTextField(10);
 		
@@ -109,12 +80,7 @@ public class VentanaHacerCompra extends JFrame implements ActionListener  , Mous
 		talla.setEditable(false);
 		precio.setEditable(false);
 		existencias.setEditable(false);
-	
-		
-		
-		
-	
-		
+
 		// Aspecto general de la ventana y formato de componentes y contenedores
 		this.setSize(1000,600);
 		this.setTitle( "Preparación Pedido" );
@@ -128,9 +94,7 @@ public class VentanaHacerCompra extends JFrame implements ActionListener  , Mous
 		bSalir = new JButton( "Salir" );
 		bCarrito = new JButton( "Ver Carrito de la Compra" );
 		
-		
 		tipoArticulo.addActionListener(this);
-		
 		
 		bCarrito.addActionListener(this);
 		bAñadir.addActionListener(this);
@@ -150,22 +114,8 @@ public class VentanaHacerCompra extends JFrame implements ActionListener  , Mous
 		Titulo.setFont(fontLabel);
 		Carrito.setFont(fontLabel);	
 			
-	
-		 
-		 scrlPnlLista = new JScrollPane();
-			
-			
-		// lstOrdenadores = new JList<Ordenadores>();
-		 // lstOrdenadores.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		 // lstOrdenadores.setModel(new DefaultListModel<Ordenadores>());
-		
-		 // lstOrdenadores.addMouseListener(this);
-		
-		 
-		 // scrlPnlLista.setViewportView(lstOrdenadores);
-	
-	
-			 
+		scrlPnlLista = new JScrollPane();
+
 		// Creación de paneles
 		JPanel panelTitulo = new JPanel();
 			JPanel pUsuario = new JPanel();
