@@ -52,9 +52,6 @@ public class VentanaProductos extends JFrame {
 	private ArrayList<Articulo> articulos = new ArrayList<Articulo>();
 
 	
-    /**
-     * Constructor por defecto
-     */
     public VentanaProductos(Usuario usu) {
     	
     	articulos = BD.extraerArticulos();
@@ -95,13 +92,11 @@ public class VentanaProductos extends JFrame {
         jpanel1.add(btnBuscar, BorderLayout.NORTH);
 
         
-        // Label para mostrar las imagenes
         photographLabel.setVerticalTextPosition(JLabel.BOTTOM);
         photographLabel.setHorizontalTextPosition(JLabel.CENTER);
         photographLabel.setHorizontalAlignment(JLabel.CENTER);
         photographLabel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
-         
-      
+       
         buttonBar.add(Box.createGlue());
         buttonBar.add(Box.createGlue());
         
@@ -141,25 +136,16 @@ public class VentanaProductos extends JFrame {
          
         setSize(500, 400);
          
-        // centrar en pantalla
+     
         setLocationRelativeTo(null);
          
-     
+        
         loadimages.execute();
     }
      
-    /**
-     * SwingWorker class 
-     * 
-     *
-     * We use Void as the first SwingWroker 
-     * 
-     */
+  
     private SwingWorker<Void, ThumbnailAction> loadimages = new SwingWorker<Void, ThumbnailAction>() {
-         
-        /**
-         * Creates full size and thumbnail versions of the target image files.
-         */
+    
         @Override
         protected Void doInBackground() throws Exception {
             for (int i = 0; i < imageCaptions.length; i++) {
@@ -174,33 +160,26 @@ public class VentanaProductos extends JFrame {
                     thumbAction = new ThumbnailAction(icon, thumbnailIcon, imageCaptions[i]);
                      
                 }else{
-                    
+                  
                     thumbAction = new ThumbnailAction(placeholderIcon, placeholderIcon, imageCaptions[i]);
                 }
                 publish(thumbAction);
             }
-         
+           
             return null;
         }
-         
-        /**
-         * Process all loaded images.
-         */
+     
         @Override
         protected void process(List<ThumbnailAction> chunks) {
             for (ThumbnailAction thumbAction : chunks) {
                 JButton thumbButton = new JButton(thumbAction);
-               
+              
                 buttonBar.add(thumbButton, buttonBar.getComponentCount() - 1);
             }
         }
     };
      
-    /**
-     * Creates an ImageIcon if the path is valid.
-     * @param String - resource path
-     * @param String - description of the file
-     */
+  
     protected ImageIcon createImageIcon(String path,
             String description) {
     	try {
@@ -214,13 +193,7 @@ public class VentanaProductos extends JFrame {
     	return null;
     }
      
-    /**
-     * Resizes an image using a Graphics2D object backed by a BufferedImage.
-     * @param srcImg - source image to scale
-     * @param w - desired width
-     * @param h - desired height
-     * @return - the new resized image
-     */
+  
     private Image getScaledImage(Image srcImg, int w, int h){
         BufferedImage resizedImg = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
         Graphics2D g2 = resizedImg.createGraphics();
@@ -230,36 +203,25 @@ public class VentanaProductos extends JFrame {
         return resizedImg;
     }
      
-    /**
-     * Action class that shows the image specified in it's constructor.
-     */
+ 
     private class ThumbnailAction extends AbstractAction{
          
-        /**
-		 * 
-		 */
+       
 		private static final long serialVersionUID = -2913735980025052815L;
-		/**
-         *The icon if the full image we want to display.
-         */
+	
         private Icon displayPhoto;
          
-        /**
-         * @param Icon - The full size photo to show in the button.
-         * @param Icon - The thumbnail to show in the button.
-         * @param String - The descriptioon of the icon.
-         */
+       
         public ThumbnailAction(Icon photo, Icon thumb, String desc){
             displayPhoto = photo;
-         
+          
             putValue(SHORT_DESCRIPTION, desc);
+             
            
             putValue(LARGE_ICON_KEY, thumb);
         }
          
-        /**
-         *
-         */
+       
         public void actionPerformed(ActionEvent e) {
             photographLabel.setIcon(displayPhoto);
             String texto = getValue(SHORT_DESCRIPTION).toString();

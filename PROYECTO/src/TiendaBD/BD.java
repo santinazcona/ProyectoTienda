@@ -78,7 +78,7 @@ public class BD {
                 + ");");
     	
         try {
-            // create a new table
+            // crear nueva tabla
         	for(String str : tablas) {
         		st.execute(str);
         	}
@@ -117,7 +117,7 @@ public class BD {
         try {
         	Statement st = con.createStatement();
         	ResultSet rs = st.executeQuery(com);
-            // loop through the result set
+        
 	        while (rs.next()) {
 	        	tarjetas.add(new Articulo(
 	        			rs.getInt(2),
@@ -145,7 +145,7 @@ public class BD {
         try {
         	Statement st = con.createStatement();
         	ResultSet rs = st.executeQuery(com);
-            // loop through the result set
+          
 	        while (rs.next()) {
 	        	art = new Articulo(
 	        			rs.getInt(2),
@@ -226,7 +226,7 @@ public class BD {
         try {
         	Statement st = con.createStatement();
         	ResultSet rs = st.executeQuery(com);
-            // loop through the result set
+        
             while (rs.next()) {
                 valor = rs.getInt(1);
                 if(valor == 1) {
@@ -250,7 +250,7 @@ public class BD {
         
         try {
              rs = st.executeQuery(com);
-            // loop through the result set
+       
             while (rs.next()) {
                 System.out.println(rs.getInt("id") +  "\t" + 
                                    rs.getString("name") + "\t" +
@@ -270,7 +270,7 @@ public class BD {
         try {
         	Statement st = con.createStatement();
         	ResultSet rs = st.executeQuery(com);
-            // loop through the result set
+            
             while (rs.next()) {
                 valor = rs.getInt(1);
                 if(valor == 1) {
@@ -291,7 +291,7 @@ public class BD {
         try {
         	Statement st = con.createStatement();
         	ResultSet rs = st.executeQuery(com);
-            // loop through the result set
+           
 	        while (rs.next()) {
 	        	carr.add(new Carrito(
 	        			rs.getInt(3),

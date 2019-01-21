@@ -2,5 +2,37 @@
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="lib/sqlite-jdbc-3.23.1.jar"/>
+	<classpathentry kind="lib" path="lib/gmail/google-api-services-gmail-v1-rev98-1.25.0.jar"/>
+	<classpathentry kind="lib" path="lib/gmail/libs/google-api-client-1.25.0.jar"/>
+	<classpathentry kind="lib" path="lib/gmail/libs/google-http-client-1.25.0.jar"/>
+	<classpathentry kind="lib" path="lib/gmail/libs/google-http-client-jackson2-1.25.0.jar"/>
+	<classpathentry kind="lib" path="lib/gmail/libs/google-oauth-client-1.25.0.jar"/>
+	<classpathentry kind="lib" path="lib/gmail/libs/google-oauth-client-java6-1.25.0.jar"/>
+	<classpathentry kind="lib" path="lib/gmail/libs/google-oauth-client-jetty-1.25.0.jar"/>
+	<classpathentry kind="lib" path="lib/gmail/libs/google-api-client-android-1.25.0.jar"/>
+	<classpathentry kind="lib" path="lib/gmail/libs/google-api-client-appengine-1.25.0.jar"/>
+	<classpathentry kind="lib" path="lib/gmail/libs/google-api-client-gson-1.25.0.jar"/>
+	<classpathentry kind="lib" path="lib/gmail/libs/google-api-client-jackson2-1.25.0.jar"/>
+	<classpathentry kind="lib" path="lib/gmail/libs/google-api-client-java6-1.25.0.jar"/>
+	<classpathentry kind="lib" path="lib/gmail/libs/google-api-client-servlet-1.25.0.jar"/>
+	<classpathentry kind="lib" path="lib/gmail/libs/google-http-client-android-1.25.0.jar"/>
+	<classpathentry kind="lib" path="lib/gmail/libs/google-http-client-appengine-1.25.0.jar"/>
+	<classpathentry kind="lib" path="lib/gmail/libs/google-http-client-gson-1.25.0.jar"/>
+	<classpathentry kind="lib" path="lib/gmail/libs/google-http-client-jdo-1.25.0.jar"/>
+	<classpathentry kind="lib" path="lib/gmail/libs/google-oauth-client-appengine-1.25.0.jar"/>
+	<classpathentry kind="lib" path="lib/gmail/libs/google-oauth-client-servlet-1.25.0.jar"/>
+	<classpathentry kind="lib" path="lib/gmail/libs/gson-2.1.jar"/>
+	<classpathentry kind="lib" path="lib/gmail/libs/httpclient-4.5.5.jar"/>
+	<classpathentry kind="lib" path="lib/gmail/libs/jackson-core-2.9.6.jar"/>
+	<classpathentry kind="lib" path="lib/gmail/libs/jdo2-api-2.3-eb.jar"/>
+	<classpathentry kind="lib" path="lib/gmail/libs/jetty-6.1.26.jar"/>
+	<classpathentry kind="lib" path="lib/gmail/libs/jetty-util-6.1.26.jar"/>
+	<classpathentry kind="lib" path="lib/gmail/libs/jsr305-3.0.2.jar"/>
+	<classpathentry kind="lib" path="lib/gmail/libs/transaction-api-1.1.jar"/>
+	<classpathentry kind="lib" path="lib/guava-23.0.jar"/>
+	<classpathentry kind="lib" path="lib/javax.servlet-api-3.1.0.jar"/>
+	<classpathentry kind="lib" path="lib/javax.mail.jar"/>
+	<classpathentry kind="lib" path="lib/commons-codec-1.11.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

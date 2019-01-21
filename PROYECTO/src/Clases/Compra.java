@@ -6,7 +6,11 @@ public class Compra {
 	private int CodArticulo;
 	private double PrecioT;
 	
-	
+	public Compra(String dNICliente, int codArticulo, double precioT) {
+		DNICliente = dNICliente;
+		CodArticulo = codArticulo;
+		PrecioT = precioT;
+	}
 
 	public String getDNICliente() {
 		return DNICliente;
@@ -29,15 +33,6 @@ public class Compra {
 	}
 
 	public void setPrecioT(double precioT) {
-		PrecioT = precioT;
-	}
-
-	
-	
-	public Compra(String dNICliente, int codArticulo, double precioT) {
-		super();
-		DNICliente = dNICliente;
-		CodArticulo = codArticulo;
 		PrecioT = precioT;
 	}
 

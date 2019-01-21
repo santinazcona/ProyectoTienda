@@ -47,7 +47,7 @@ public class app {
 		
 		VentanaLogin = new VentanaLogin();
 		VentanaInicio = new VentanaInicio(gmailqs);
-        //Create and set up the window.
+        //Crear y set up de la ventana
         frame = new JDialog();
         frame.setModal(true);
         //imagen de fondo
@@ -90,8 +90,6 @@ public class app {
             timer = new Timer(DELAY, new ActionListener() {
                 private Point lastPoint = MouseInfo.getPointerInfo().getLocation();
 
-                /* called every DELAY milliseconds to fetch the
-                 * current mouse coordinates */
 
                 public synchronized void actionPerformed(ActionEvent e) {
                     Point point = MouseInfo.getPointerInfo().getLocation();
@@ -103,7 +101,7 @@ public class app {
                         counter++;
                         System.out.println("Contador segundos: " + counter);
                         if(counter > FINAL) {
-                        	//System.out.println("Termino...");
+                        	//System.out.println("Terminado...");
                         	stop();
                         	INACTIVIDAD.set(true);
                         	
@@ -212,7 +210,7 @@ class VentanaLogin extends JPanel implements ActionListener {
 		            addComponent(jlblContrasena).addComponent(password));
 		layout.setVerticalGroup(vGroup);
 		
-		//set nombre y contrasena
+		//set nombre y contraseña
 		nombre.setText("manu");
 		password.setText("hola");
 		

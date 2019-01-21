@@ -174,10 +174,7 @@ public class VentanaUsuario extends JDialog implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		 
 		if (e.getSource() == bCrear){
-			
-	//		if (Utilidades.isInteger(codigoPostal.getText()) && Utilidades.isInteger(cuentaBancaria.getText())){
-				
-				//boolean compUsu = comprobarUsuario(lUsu,  codigoUsuario.getText()) ;
+	
 				if (true){
 					int n = JOptionPane.showConfirmDialog(
 						    this,
