@@ -20,7 +20,7 @@ public class VentanaHacerCompra extends JFrame implements ActionListener  , Mous
 	private JLabel direccion;
 	private JLabel poblacion;
 	private JLabel codigoPostal;
-	private JLabel tallatamaño;
+	private JLabel tallatamano;
 	
 	private JComboBox <String >tipoArticulo;
 	
@@ -40,7 +40,7 @@ public class VentanaHacerCompra extends JFrame implements ActionListener  , Mous
 	
 	
 	private JButton bSalir;
-	private JButton bAñadir;
+	private JButton bdadir;
 	
 	private JButton bCarrito;
 	private JPanel pArticulo12;
@@ -56,7 +56,7 @@ public class VentanaHacerCompra extends JFrame implements ActionListener  , Mous
 		direccion = new JLabel(uDatos.getDireccion());
 		poblacion = new JLabel(uDatos.getPoblacion());
 		codigoPostal = new JLabel( Integer.toString(uDatos.getCodigoPostal()));
-		tallatamaño = new JLabel("Talleje" );
+		tallatamano = new JLabel("Talleje" );
 		tipoArticulo = new JComboBox<String>( new String[] { "Ordenadores"} );
 
 		artSeleccionados = new JTextField(6);
@@ -83,28 +83,28 @@ public class VentanaHacerCompra extends JFrame implements ActionListener  , Mous
 
 		// Aspecto general de la ventana y formato de componentes y contenedores
 		this.setSize(1000,600);
-		this.setTitle( "Preparación Pedido" );
+		this.setTitle( "Preparaciï¿½n Pedido" );
 	
 		this.setAlwaysOnTop( true );
 		this.setLocation( new Point(300,100) );
 		this.setResizable(false);
 		
 		
-		bAñadir = new JButton( "Añadir" );
+		bdadir = new JButton( "Aï¿½adir" );
 		bSalir = new JButton( "Salir" );
 		bCarrito = new JButton( "Ver Carrito de la Compra" );
 		
 		tipoArticulo.addActionListener(this);
 		
 		bCarrito.addActionListener(this);
-		bAñadir.addActionListener(this);
+		bdadir.addActionListener(this);
 		bSalir.addActionListener(this);
 
 		
-		bAñadir.setEnabled(false);
+		bdadir.setEnabled(false);
 	
 		Font fontBotones = new Font( "Arial", Font.BOLD, 16);
-		for (JButton b : new JButton[] { bAñadir, bSalir } )
+		for (JButton b : new JButton[] { bdadir, bSalir } )
 			b.setFont( fontBotones );
 		
 		Font fontLabel = new Font( "Arial", Font.BOLD, 16);
@@ -116,7 +116,7 @@ public class VentanaHacerCompra extends JFrame implements ActionListener  , Mous
 			
 		scrlPnlLista = new JScrollPane();
 
-		// Creación de paneles
+		// Creaciï¿½n de paneles
 		JPanel panelTitulo = new JPanel();
 			JPanel pUsuario = new JPanel();
 				JPanel pTitulo = new JPanel();
@@ -176,7 +176,7 @@ public class VentanaHacerCompra extends JFrame implements ActionListener  , Mous
 		
 		
 		
-		// Asignación de componentes y contenedores a paneles
+		// Asignaciï¿½n de componentes y contenedores a paneles
 					
 						pTitulo.add( Titulo);
 	
@@ -188,7 +188,7 @@ public class VentanaHacerCompra extends JFrame implements ActionListener  , Mous
 						pDirUsu.add(codigoPostal);
 						pDirUsu.add(poblacion);
 				
-						pDirUsu2.add(new JLabel ("Tipo Artículo"));
+						pDirUsu2.add(new JLabel ("Tipo Artï¿½culo"));
 						pDirUsu2.add(tipoArticulo);
 						
 						
@@ -199,7 +199,7 @@ public class VentanaHacerCompra extends JFrame implements ActionListener  , Mous
 				pUsuario.add(pDirUsu2);
 				
 					pUsuario21.add(Carrito);
-					pUsuario22.add(new JLabel ("Artículos Seleccionados"));
+					pUsuario22.add(new JLabel ("Artï¿½culos Seleccionados"));
 					pUsuario22.add(artSeleccionados);
 					pUsuario23.add(new JLabel ("Precio Pedido     "));
 					pUsuario23.add(precioPedido);
@@ -220,7 +220,7 @@ public class VentanaHacerCompra extends JFrame implements ActionListener  , Mous
 						pArticulo11a.add(actividad);
 						pArticulo12.add(new JLabel ("Color           "));
 						pArticulo12.add(color);
-						pArticulo13.add(tallatamaño); 
+						pArticulo13.add(tallatamano); 
 						pArticulo13.add(talla);
 						pArticulo14.add(new JLabel ("Precio         "));
 						pArticulo14.add(precio);
@@ -257,13 +257,13 @@ public class VentanaHacerCompra extends JFrame implements ActionListener  , Mous
 		pBotonera.setBackground( Color.BLUE );
 		
 		// botonera.setLayout( new FlowLayout() );     // todo panel tiene layout flow por defecto
-		pBotonera.add( bAñadir );
+		pBotonera.add( bdadir );
 		pBotonera.add( bSalir );
 				
 				
 		
 				
-		// Añadir paneles a principal
+		// Aï¿½adir paneles a principal
 				getContentPane().setLayout( new BorderLayout() );
 				
 							

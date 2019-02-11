@@ -1,10 +1,13 @@
 package Ventanas;
 
+
 import java.awt.BorderLayout;
+import java.awt.Dialog;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.Point;
 import java.awt.RenderingHints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,6 +21,7 @@ import javax.swing.Box;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -32,7 +36,7 @@ import Clases.Usuario;
 import TiendaBD.BD;
 
 
-public class VentanaProductos extends JFrame {
+public class VentanaProductos extends JDialog {
 	private static final long serialVersionUID = -3742512995086784159L;
 	private JLabel photographLabel = new JLabel();
     private JToolBar buttonBar = new JToolBar();
@@ -50,9 +54,14 @@ public class VentanaProductos extends JFrame {
 	private String[] imageFileNames;
 	
 	private ArrayList<Articulo> articulos = new ArrayList<Articulo>();
-
 	
+	
+    /**
+     * Constructor por defecto
+     */
     public VentanaProductos(Usuario usu) {
+    	
+    	
     	
     	articulos = BD.extraerArticulos();
     	
@@ -80,6 +89,12 @@ public class VentanaProductos extends JFrame {
         jpanel1.setLayout(new BorderLayout());
         jlbldesc.setFont(new Font("Serif", Font.BOLD, 18));
         jpanel1.add(jlbldesc, BorderLayout.CENTER);
+        this.setAlwaysOnTop( true );
+		this.setLocation( new Point(500,300) );
+		this.setResizable(false);
+		this.setDefaultCloseOperation( JFrame.DISPOSE_ON_CLOSE );
+		this.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
+
         
         //boton buscar
     	btnBuscar.addActionListener(new ActionListener() { 
@@ -92,11 +107,14 @@ public class VentanaProductos extends JFrame {
         jpanel1.add(btnBuscar, BorderLayout.NORTH);
 
         
+        // Un label para mostrar las imagenes
         photographLabel.setVerticalTextPosition(JLabel.BOTTOM);
         photographLabel.setHorizontalTextPosition(JLabel.CENTER);
         photographLabel.setHorizontalAlignment(JLabel.CENTER);
         photographLabel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
-       
+         
+        // A�adimos dos glue componentes. Mas tarde en el process() a�adiremos los botones
+        // botones en la barra de accion.
         buttonBar.add(Box.createGlue());
         buttonBar.add(Box.createGlue());
         
@@ -136,16 +154,22 @@ public class VentanaProductos extends JFrame {
          
         setSize(500, 400);
          
-     
+        // Esto centra el frame en el centro de la imagen
         setLocationRelativeTo(null);
          
-        
+        // empieza la carga de la imagen en el thread de fondo del SwingWorker
         loadimages.execute();
     }
      
-  
+    /**
+     * SwingWorker clase que se encarga de carga las imagenes en un thread de fondo y llama a publish
+     * Cuando estan listas para ser mostradas.
+     */
     private SwingWorker<Void, ThumbnailAction> loadimages = new SwingWorker<Void, ThumbnailAction>() {
-    
+         
+    	/**
+         * Crea una imagen entera y una thumbnail de las imagenes.
+         */
         @Override
         protected Void doInBackground() throws Exception {
             for (int i = 0; i < imageCaptions.length; i++) {
@@ -160,26 +184,33 @@ public class VentanaProductos extends JFrame {
                     thumbAction = new ThumbnailAction(icon, thumbnailIcon, imageCaptions[i]);
                      
                 }else{
-                  
+                    // Si la imagen no carga ponemos el placeholder
                     thumbAction = new ThumbnailAction(placeholderIcon, placeholderIcon, imageCaptions[i]);
                 }
                 publish(thumbAction);
             }
-           
+            // tenemos que devolver algo porque es void por lo tanto devolvemos null
             return null;
         }
-     
+         
+        /**
+         * Procesa todas las imagens cargadas.
+         */
         @Override
         protected void process(List<ThumbnailAction> chunks) {
             for (ThumbnailAction thumbAction : chunks) {
                 JButton thumbButton = new JButton(thumbAction);
-              
+                //A�adimos el ultimo boton antes del glue esto centra los botones
                 buttonBar.add(thumbButton, buttonBar.getComponentCount() - 1);
             }
         }
     };
      
-  
+    /**
+     * Crea un ImageIcon si el path es valido.
+     * @param String - el path del recurso
+     * @param String - descripcion del fichero
+     */
     protected ImageIcon createImageIcon(String path,
             String description) {
     	try {
@@ -193,7 +224,13 @@ public class VentanaProductos extends JFrame {
     	return null;
     }
      
-  
+    /**
+     * Reescala una imagen utilizando Graphics2D objeto utilizando tambien un BufferedImage.
+     * @param srcImg - la imagen a reescalar
+     * @param w - la anchura deseada
+     * @param h - altura deseada
+     * @return - La imagen cambiada
+     */
     private Image getScaledImage(Image srcImg, int w, int h){
         BufferedImage resizedImg = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
         Graphics2D g2 = resizedImg.createGraphics();
@@ -203,25 +240,35 @@ public class VentanaProductos extends JFrame {
         return resizedImg;
     }
      
- 
+    /**
+     * Clase que muestra la imagen especifica en su constructor.
+     */
     private class ThumbnailAction extends AbstractAction{
          
-       
 		private static final long serialVersionUID = -2913735980025052815L;
-	
+		/**
+         * El icono es la imagen que queremos mostrar.
+         */
         private Icon displayPhoto;
          
-       
+        /**
+         * @param Icon - La imagen completa que mostrar en el botno.
+         * @param Icon - El thumbnail que motrar en el boton.
+         * @param String - La descripcion del icono.
+         */
         public ThumbnailAction(Icon photo, Icon thumb, String desc){
             displayPhoto = photo;
-          
+             
+            // La toltip de un boton se convierte en shortDescription.
             putValue(SHORT_DESCRIPTION, desc);
              
-           
+            // El LARGE_ICON_KEY es la clave para especificar cuando una accion es aplicada a un boton.
             putValue(LARGE_ICON_KEY, thumb);
         }
          
-       
+        /**
+         * Muestra la imagen en la zona centrar del panel y pone el titulo.
+         */
         public void actionPerformed(ActionEvent e) {
             photographLabel.setIcon(displayPhoto);
             String texto = getValue(SHORT_DESCRIPTION).toString();
@@ -240,6 +287,7 @@ public class VentanaProductos extends JFrame {
             
         }
     }
+
 }
 
 

@@ -44,7 +44,7 @@ public class VentanaUsuario extends JDialog implements ActionListener{
 		
 		// Aspecto general de la ventana y formato de los componentes y contenedores
 		this.setSize(600,300);
-		this.setTitle( "Edición Datos de usuarios" );
+		this.setTitle( "Ediciï¿½n Datos de usuarios" );
 		this.setMinimumSize( new Dimension( 600, 300 ));
 		this.setAlwaysOnTop( true );
 		this.setLocation( new Point(500,300) );
@@ -66,7 +66,7 @@ public class VentanaUsuario extends JDialog implements ActionListener{
 		JLabel Titulo = new JLabel("DATOS DE USUARIO:");
 		Titulo.setFont(fontLabel);
 		
-		// Creación de paneles
+		// Creaciï¿½n de paneles
 		JPanel panelTitulo = new JPanel();
 		JPanel panelUsuario = new JPanel();
 		JPanel panelDatos = new JPanel();
@@ -75,7 +75,7 @@ public class VentanaUsuario extends JDialog implements ActionListener{
 		JPanel pApellidos = new JPanel();
 		JPanel pCuenta = new JPanel();
 		JPanel panelCodigo = new JPanel();
-		JPanel panelDirección = new JPanel();
+		JPanel panelDireccion = new JPanel();
 		JPanel pDireccion = new JPanel();
 		JPanel pPoblacion = new JPanel();
 		JPanel pPostal = new JPanel();
@@ -94,7 +94,7 @@ public class VentanaUsuario extends JDialog implements ActionListener{
 		pApellidos.setLayout( new FlowLayout( FlowLayout.LEFT ) );
 		pCuenta.setLayout( new FlowLayout( FlowLayout.LEFT ) );
 		panelCodigo.setLayout( new FlowLayout( FlowLayout.LEFT ) );
-		panelDirección.setLayout(new BoxLayout( panelDirección, BoxLayout.Y_AXIS ) );
+		panelDireccion.setLayout(new BoxLayout( panelDireccion, BoxLayout.Y_AXIS ) );
 		pDireccion.setLayout( new FlowLayout( FlowLayout.LEFT ) );
 		pPoblacion.setLayout( new FlowLayout( FlowLayout.LEFT ) );
 		pPostal.setLayout( new FlowLayout( FlowLayout.LEFT ) );
@@ -102,7 +102,7 @@ public class VentanaUsuario extends JDialog implements ActionListener{
 				
 		pBotonera.setLayout( new FlowLayout( FlowLayout.CENTER ) );
 
-		// Asignación de componentes y contenedores a paneles
+		// Asignaciï¿½n de componentes y contenedores a paneles
 		panelTitulo.add( Titulo);
 	
 		pNombre.add( new JLabel( "Nombre :" ));
@@ -111,7 +111,7 @@ public class VentanaUsuario extends JDialog implements ActionListener{
 		pApellidos.add( new JLabel( "Apellidos :" ));
 		pApellidos.add( apellidos );	
 	
-		pCuenta.add( new JLabel( "Nº Cuenta :" ));
+		pCuenta.add( new JLabel( "Nï¿½ Cuenta :" ));
 		pCuenta.add( cuentaBancaria );	
 		
 		panelCodigo.add( new JLabel( "Codigo de Usuario :" ));
@@ -122,21 +122,21 @@ public class VentanaUsuario extends JDialog implements ActionListener{
 		panelNombre.add(pCuenta);
 		panelNombre.add(panelCodigo);
 					
-		pDireccion.add( new JLabel( "Dirección :" ));
+		pDireccion.add( new JLabel( "Direcciï¿½n :" ));
 		pDireccion.add( direccion );	
 
-		pPoblacion.add( new JLabel( "Población :" ));
+		pPoblacion.add( new JLabel( "Poblaciï¿½n :" ));
 		pPoblacion.add( poblacion );	
 
-		pPostal.add( new JLabel( "Código Postal :" ));
+		pPostal.add( new JLabel( "Cï¿½digo Postal :" ));
 		pPostal.add( codigoPostal );	
 							
-		panelDirección.add(pDireccion);
-		panelDirección.add(pPoblacion);
-		panelDirección.add(pPostal);
+		panelDireccion.add(pDireccion);
+		panelDireccion.add(pPoblacion);
+		panelDireccion.add(pPostal);
 
 		panelDatos.add(panelNombre);
-		panelDatos.add(panelDirección);
+		panelDatos.add(panelDireccion);
 				
 		panelUsuario.add(panelDatos);
 			
@@ -148,7 +148,7 @@ public class VentanaUsuario extends JDialog implements ActionListener{
 		pBotonera.add( bCrear );
 		pBotonera.add( bSalir );
 	
-		// Añadir paneles a principal
+		// Aï¿½adir paneles a principal
 		getContentPane().setLayout( new BorderLayout() );
 		
 					
@@ -174,11 +174,14 @@ public class VentanaUsuario extends JDialog implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		 
 		if (e.getSource() == bCrear){
-	
+			
+	//		if (Utilidades.isInteger(codigoPostal.getText()) && Utilidades.isInteger(cuentaBancaria.getText())){
+				
+				//boolean compUsu = comprobarUsuario(lUsu,  codigoUsuario.getText()) ;
 				if (true){
 					int n = JOptionPane.showConfirmDialog(
 						    this,
-						    "El Usuario ya existe\n"  + "¿Desea intentarlo de nuevo?",
+						    "El Usuario ya existe\n"  + "ï¿½Desea intentarlo de nuevo?",
 						    "Nuevo Usuario",
 						    JOptionPane.YES_NO_OPTION,
 						    JOptionPane.QUESTION_MESSAGE);
@@ -207,7 +210,7 @@ public class VentanaUsuario extends JDialog implements ActionListener{
 				
 					JOptionPane.showMessageDialog(
 					this,
-					"El código Postal y la cuenta Bancaria\n"  + " deben ser numeros enteros",
+					"El cï¿½digo Postal y la cuenta Bancaria\n"  + " deben ser numeros enteros",
 					"Datos de Usuario",
 					JOptionPane.WARNING_MESSAGE);
 			}
